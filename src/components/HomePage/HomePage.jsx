@@ -21,17 +21,17 @@ const HomePage = ({ data }) => {
   const overallROI = ((totalSales - totalInvestment) / totalInvestment) * 100;
 
   return (
-    <div className="flex flex-wrap items-center justify-around h-screen m-2 mt-5 bg-gray-800 rounded-lg shadow-lg p3 ">
+    <div className="flex flex-wrap justify-between p-3 mt-0.5 bg-gray-800 shadow-lg h-[90vh] md:h-[87vh] lg:h-[92vh]">
       {/* Tile for Total Sales */}
-      <div className="w-1/4 h-32 p-6 m-2 text-center text-white bg-blue-500 rounded-lg ">
-        <div className="text-2xl ">{`$${formatNumber(
+      <div className="w-full sm:w-1/2 md:w-1/4 h-32 p-6 m-2 text-center text-white bg-blue-500 rounded-lg">
+        <div className="text-2xl">{`$${formatNumber(
           totalSales.toFixed(2)
         )}`}</div>
         <p className="pt-2">Total Sales</p>
       </div>
 
       {/* Tile for Total Spend */}
-      <div className="w-1/4 h-32 p-6 m-2 text-center text-white bg-green-500 rounded-lg">
+      <div className="w-full sm:w-1/2 md:w-1/4 h-32 p-6 m-2 mt-[10%] text-center text-white bg-green-500 rounded-lg">
         <div className="text-2xl">{`$${formatNumber(
           totalInvestment.toFixed(2)
         )}`}</div>
@@ -39,13 +39,13 @@ const HomePage = ({ data }) => {
       </div>
 
       {/* Tile for Total Profit */}
-      <div className="w-1/4 h-32 p-6 m-2 text-center text-white bg-pink-500 rounded-lg">
+      <div className="w-full sm:w-1/2 md:w-1/4 h-32 p-6 m-2 text-center text-white bg-pink-500 rounded-lg">
         <div className="text-2xl">{`$${formatNumber(prot.toFixed(2))}`}</div>
         <p className="pt-2">Total Profit</p>
       </div>
 
       {/* Tile for Total Impact */}
-      <div className="w-1/4 h-32 p-6 m-2 text-center text-white bg-indigo-500 rounded-lg">
+      <div className="w-full sm:w-1/2 md:w-1/4 h-32 p-6 m-2 text-center text-white bg-indigo-500 rounded-lg">
         <div className="text-2xl">{`$${formatNumber(
           totalImpact.toFixed(2)
         )}`}</div>
@@ -53,7 +53,7 @@ const HomePage = ({ data }) => {
       </div>
 
       {/* Tile for ROI */}
-      <div className="w-1/4 h-32 p-6 m-2 text-center text-white bg-yellow-500 rounded-lg">
+      <div className="w-full sm:w-1/2 md:w-1/4 h-32 p-6 m-2 text-center text-white bg-yellow-500 rounded-lg">
         <div className="text-2xl">{`${overallROI.toFixed(2)}%`}</div>
         <p className="pt-2">ROI</p>
       </div>
