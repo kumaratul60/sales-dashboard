@@ -5,32 +5,39 @@ Chart.register(CategoryScale);
 
 const Dashboard = ({ dataFill }) => {
   return (
-    <div className="container p-6 mx-auto ">
-      <h2 className="mb-4 text-2xl font-bold">Sales Dashboard</h2>
+    <div className="container p-6 mx-auto bg-gray-100 rounded-lg shadow-lg">
+      <h2 className="mb-6 text-2xl font-bold text-center">Sales Dashboard</h2>
 
       {/* Implement Chart 1: Pie Chart */}
-      <div className="mb-6">
-        <h3 className="mb-2 text-lg font-bold">
+      <div className="p-6 mb-8 bg-white rounded-lg shadow">
+        <h3 className="mb-4 text-lg font-bold text-center">
           Sales by Product (Pie Chart)
         </h3>
-        <PieChart passdata={dataFill} />
+        <div className="flex justify-center">
+          <PieChart passdata={dataFill} />
+        </div>
       </div>
-      <hr />
+      <hr className="my-6" />
 
       {/* Implement Chart 2: Stacked Bar Chart */}
-      <div className="mb-6">
-        <h3 className="mb-2 text-lg font-bold">
+      <div className="p-6 mb-8 bg-white rounded-lg shadow">
+        <h3 className="mb-4 text-lg font-bold text-center">
           Total Sales and Investment by Product (Stacked Bar Chart)
         </h3>
-        <StackedBarChart passdata={dataFill} />
+        <div className="flex justify-center">
+          <StackedBarChart passdata={dataFill} />
+        </div>
       </div>
-      <hr />
+      <hr className="my-6" />
+
       {/* Implement Chart 3: Line Chart */}
-      <div>
-        <h3 className="mb-2 text-lg font-bold">
+      <div className="p-6 bg-white rounded-lg shadow">
+        <h3 className="mb-4 text-lg font-bold text-center">
           Trend of Sales and Investment over Time (Line Chart)
         </h3>
-        <LineChart passdata={dataFill} />
+        <div className="flex justify-center">
+          <LineChart passdata={dataFill} />
+        </div>
       </div>
     </div>
   );

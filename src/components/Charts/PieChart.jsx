@@ -4,7 +4,7 @@ import {
   generateMultipleColors,
   getSingleRandomColor,
 } from "../../utils/generatesColor";
-import { formatNumber } from "../../utils/formatNum";
+import { useEffect, useState } from "react";
 
 const prepareChartData = (data) => {
   const { labels, values } = extractLabelsAndValues(data);
@@ -28,22 +28,23 @@ const prepareChartData = (data) => {
 const PieChart = ({ passdata }) => {
   const chartData = prepareChartData(passdata);
 
+  const chartOptions = {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: {
+        position: "top",
+      },
+    },
+  };
+
   return (
-    <div className="h-[600px] flex  w-full justify-center m-2 p-2">
-      <Pie
-        data={chartData}
-        options={{
-          responsive: true,
-          legend: {
-            position: "top",
-          },
-          title: {
-            display: true,
-            text: "Contribution by Channel",
-          },
-        }}
-      />
-    </div>
+    <>
+      <div className="h-[400px] w-full p-4 bg-white rounded-lg">
+        <Pie data={chartData} options={chartOptions} />
+      </div>
+
+    </>
   );
 };
 

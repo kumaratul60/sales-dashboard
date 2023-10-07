@@ -17,7 +17,6 @@ const prepareStackedBarChartData = (data) => {
         data: values,
         backgroundColor,
       },
-      // Add more datasets for additional categories if needed
     ],
   };
 };
@@ -25,21 +24,25 @@ const prepareStackedBarChartData = (data) => {
 const StackedBarChart = ({ passdata }) => {
   const chartData = prepareStackedBarChartData(passdata);
 
+  const chartOptions = {
+    responsive: true,
+    maintainAspectRatio: false, // Allow chart to break out of its parent container
+    plugins: {
+      legend: {
+        position: "top",
+      },
+    },
+    scales: {
+      x: { stacked: true },
+      y: { stacked: true },
+    },
+  };
+
+   
+
   return (
-    <div className="h-[550px] flex  w-full justify-center m-2 p-2">
-      <Bar
-        data={chartData}
-        options={{
-          responsive: true,
-          legend: {
-            position: "top",
-          },
-          scales: {
-            x: { stacked: true },
-            y: { stacked: true },
-          },
-        }}
-      />
+    <div className="h-[400px] w-full p-4 bg-white rounded-lg ">
+      <Bar data={chartData} options={chartOptions} />
     </div>
   );
 };

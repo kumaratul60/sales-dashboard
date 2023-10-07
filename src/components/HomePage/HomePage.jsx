@@ -5,54 +5,57 @@ const HomePage = ({ data }) => {
   const totalInvestmentArray = data.map((item) => item["Total Investment"]);
   const totalImpactArray = data.map((item) => item["Impact"]);
 
-  // Calculate the total values
-  const totalSales = totalSalesArray.reduce((acc, val) => {
-    const numericValue = parseFloat(val);
-    return isNaN(numericValue) ? acc : acc + numericValue;
-  }, 0);
+  const calculateTotal = (values) => {
+    return values.reduce((acc, val) => {
+      const numericValue = parseFloat(val);
+      return isNaN(numericValue) ? acc : acc + numericValue;
+    }, 0);
+  };
 
-  const totalInvestment = totalInvestmentArray.reduce((acc, val) => {
-    const numericValue = parseFloat(val);
-    return isNaN(numericValue) ? acc : acc + numericValue;
-  }, 0);
-  const totalImpact = totalImpactArray.reduce((acc, val) => {
-    const numericValue = parseFloat(val);
-    return isNaN(numericValue) ? acc : acc + numericValue;
-  }, 0);
+  const totalSales = calculateTotal(totalSalesArray);
+  const totalInvestment = calculateTotal(totalInvestmentArray);
+  const totalImpact = calculateTotal(totalImpactArray);
 
-  // Calculate overall ROI
+  const prot = totalSales - totalInvestment;
+
   const overallROI = ((totalSales - totalInvestment) / totalInvestment) * 100;
 
   return (
-    <div className="flex flex-wrap justify-around p-3 m-2 mt-8 bg-gray-800 rounded-lg shadow-lg">
+    <div className="flex flex-wrap items-center justify-around h-screen m-2 mt-5 bg-gray-800 rounded-lg shadow-lg p3 ">
       {/* Tile for Total Sales */}
-      <div className="w-1/4 p-6 m-2 text-white bg-blue-500 rounded-lg ">
-        <div className="text-2xl">{`$${formatNumber(
+      <div className="w-1/4 h-32 p-6 m-2 text-center text-white bg-blue-500 rounded-lg ">
+        <div className="text-2xl ">{`$${formatNumber(
           totalSales.toFixed(2)
         )}`}</div>
-        <div>Total Sales</div>
+        <p className="pt-2">Total Sales</p>
       </div>
 
       {/* Tile for Total Spend */}
-      <div className="w-1/4 p-6 m-2 text-white bg-green-500 rounded-lg">
+      <div className="w-1/4 h-32 p-6 m-2 text-center text-white bg-green-500 rounded-lg">
         <div className="text-2xl">{`$${formatNumber(
           totalInvestment.toFixed(2)
         )}`}</div>
-        <div>Total Spend</div>
+        <p className="pt-2">Total Spend</p>
+      </div>
+
+      {/* Tile for Total Profit */}
+      <div className="w-1/4 h-32 p-6 m-2 text-center text-white bg-pink-500 rounded-lg">
+        <div className="text-2xl">{`$${formatNumber(prot.toFixed(2))}`}</div>
+        <p className="pt-2">Total Profit</p>
       </div>
 
       {/* Tile for Total Impact */}
-      <div className="w-1/4 p-6 m-2 text-white bg-indigo-500 rounded-lg">
+      <div className="w-1/4 h-32 p-6 m-2 text-center text-white bg-indigo-500 rounded-lg">
         <div className="text-2xl">{`$${formatNumber(
           totalImpact.toFixed(2)
         )}`}</div>
-        <div>Total Impact</div>
+        <p className="pt-2">Total Impact</p>
       </div>
 
       {/* Tile for ROI */}
-      <div className="w-1/4 p-6 m-2 text-white bg-yellow-500 rounded-lg">
+      <div className="w-1/4 h-32 p-6 m-2 text-center text-white bg-yellow-500 rounded-lg">
         <div className="text-2xl">{`${overallROI.toFixed(2)}%`}</div>
-        <div>ROI</div>
+        <p className="pt-2">ROI</p>
       </div>
     </div>
   );

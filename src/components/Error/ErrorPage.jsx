@@ -5,10 +5,10 @@ const ErrorPage = () => {
 
   return (
     <main className="h-screen w-full flex flex-col justify-center items-center bg-[#1A2238]">
-      <h1 className="font-extrabold tracking-widest text-9xl text-white-A700 animate-bounce">
+      <h1 className="font-extrabold tracking-widest text-white text-9xl animate-bounce">
         {getError.status || 404}
       </h1>
-      <div className="bg-[#FF6A3D] px-2 text-sm rotate-12 rounded p-2">
+      <div className="bg-[#FF6A3D] px-2 text-sm rotate-12 rounded absolute">
         {getError.statusText || "Oops, Page Not Found"}
       </div>
 

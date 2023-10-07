@@ -27,25 +27,23 @@ const prepareLineChartData = (data) => {
 const LineChart = ({ passdata }) => {
   const chartData = prepareLineChartData(passdata);
 
+  const chartOptions = {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: {
+        display: false,
+      },
+    },
+    scales: {
+      x: { display: true },
+      y: { display: true },
+    },
+  };
+
   return (
-    <div className="h-[550px] flex  w-full justify-center m-2 p-2">
-      <Line
-        data={chartData}
-        options={{
-          responsive: true,
-          legend: {
-            display: false,
-          },
-          scales: {
-            x: {
-              display: true,
-            },
-            y: {
-              display: true,
-            },
-          },
-        }}
-      />
+    <div className="h-[400px] w-full p-4 bg-white rounded-lg ">
+      <Line data={chartData} options={chartOptions} />
     </div>
   );
 };
