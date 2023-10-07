@@ -31,7 +31,7 @@ const HomePage = ({ data }) => {
       </div>
 
       {/* Tile for Total Spend */}
-      <div className="w-full sm:w-1/2 md:w-1/4 h-32 p-6 m-2 mt-[10%] text-center text-white bg-green-500 rounded-lg">
+      <div className="w-full sm:w-1/2 md:w-1/4 h-32 p-6 m-2 md:mt-[10%] text-center text-white bg-green-500 rounded-lg">
         <div className="text-2xl">{`$${formatNumber(
           totalInvestment.toFixed(2)
         )}`}</div>
