@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { HEADER_LOGO } from "../../constant/constant";
 
 const Navbar = () => {
@@ -19,12 +19,14 @@ const Navbar = () => {
           Home
         </span>
 
-        <span
-          className="p-2 transition-colors duration-300 cursor-pointer hover:text-teal-600"
-          onClick={() => navigate("/dashboard")}
-        >
-          Dashboard
-        </span>
+        <Link to="/dashboard">
+          <span
+            className="p-2 transition-colors duration-300 cursor-pointer hover:text-teal-600"
+            // onClick={() => navigate("/dashboard")}
+          >
+            Dashboard
+          </span>
+        </Link>
         <span className="p-2 transition-colors duration-300 cursor-pointer hover:text-teal-600">
           Profile
         </span>
